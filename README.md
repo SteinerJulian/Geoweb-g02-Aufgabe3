@@ -2,7 +2,7 @@
 Willkommen im Readme
 
 >> Installieren Sie zuallererst Git auf Ihrem Computer oder aktualisieren Sie dieses.
-	Google bringt Sie zur aktuellen Version.
+	Google bringt Sie zur aktuellen Version. Alternativ klicken Sie diesen <a href="https://git-scm.com/downloads">Link</a>
 
 >> Öffnen Sie nach der Installation Git Bash.
 
