@@ -28,4 +28,4 @@ Sie können das Projekt nun bearbeiten und mittels den Befehlen
 	"git push"
 	"git pull"   bearbeiten. 
 
-Viel Spaß!
+>Viel Spaß!<
