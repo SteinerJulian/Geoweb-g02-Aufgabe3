@@ -14,10 +14,39 @@ import { apply } from 'ol-mapbox-style';
 
 import 'ol/ol.css';
 
-var map = apply(
-  'map',
-  'data/map.geojson'
-);
+const map = new Map({
+  target: 'map',
+  view: new View({
+    center: proj.fromLonLat([16.37, 48.2]),
+    zoom: 13
+  })
+});
+map.addLayer(new TileLayer({
+  source: new Stamen({
+    layer: 'watercolor'
+  })
+}));
+
+const layer = new VectorLayer({
+source: new Vector({
+  url: 'data/map.geojson',
+  format: new GeoJSON()
+})
+});
+map.addLayer(layer);
+
+layer.setStyle(function(feature) {
+  return new Style({
+    text: new Text({
+      text: feature.get('name'),
+      font: 'Bold 14pt Verdana',
+      stroke: new Stroke({
+        color: 'white',
+        width: 3
+      })
+    })
+  });
+});
 
 var searchResult = new VectorLayer({
   zIndex: 1
