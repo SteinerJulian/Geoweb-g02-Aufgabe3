@@ -28,7 +28,7 @@ map.addLayer(new TileLayer({
 
 const layer = new VectorLayer({
 source: new Vector({
-  url: 'data/map.geojson',
+  url: '',
   format: new GeoJSON()
 })
 });
