@@ -9,7 +9,7 @@ import Text from 'ol/style/text';
 import Stroke from 'ol/style/stroke';
 import proj from 'ol/proj';
 import Map from 'ol/map';
-import 'javascript-autocomplete/auto-complete.css';
+import 'javascript-autocomplete/autocomplete.css';
 import AutoComplete from 'javascript-autocomplete';
 
 
