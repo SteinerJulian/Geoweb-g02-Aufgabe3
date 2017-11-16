@@ -16,7 +16,7 @@ import 'ol/ol.css';
 
 var map = apply(
   'map',
-  'https://gist.githubusercontent.com/anonymous/efb8d2ab014796b45817954ed4e188ba/raw/4e15466382a261a6e7da9cecfc34c5dc05f28525/style.json'
+  'data/map.geojson'
 );
 
 var searchResult = new VectorLayer({
