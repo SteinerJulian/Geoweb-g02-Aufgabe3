@@ -19,16 +19,16 @@ import {
 
 import 'ol/ol.css';
 
-apply('map', 'style.json');
+//apply('map', 'style.json');
 
-var xhr = new XMLHttpRequest();
+/*var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://photon.komoot.de/api/?q=Wien+Karlsplatz+13');
 xhr.onload = function() {
   var json = JSON.parse(xhr.responseText);
   console.log(json);
 };
 xhr.send();
-
+*/
 const map = new Map({
   target: 'map',
   view: new View({
