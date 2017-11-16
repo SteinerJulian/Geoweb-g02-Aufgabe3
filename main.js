@@ -10,42 +10,14 @@ import Stroke from 'ol/style/stroke';
 import proj from 'ol/proj';
 import Map from 'ol/map';
 
+import { apply } from 'ol-mapbox-style';
 
 import 'ol/ol.css';
 
-const map = new Map({
-  target: 'map',
-  view: new View({
-    center: proj.fromLonLat([16.37, 48.2]),
-    zoom: 13
-  })
-});
-map.addLayer(new TileLayer({
-  source: new Stamen({
-    layer: 'watercolor'
-  })
-}));
-
-const layer = new VectorLayer({
-source: new Vector({
-  url: '',
-  format: new GeoJSON()
-})
-});
-map.addLayer(layer);
-
-layer.setStyle(function(feature) {
-  return new Style({
-    text: new Text({
-      text: feature.get('name'),
-      font: 'Bold 14pt Verdana',
-      stroke: new Stroke({
-        color: 'white',
-        width: 3
-      })
-    })
-  });
-});
+var map = apply(
+  'map',
+  'https://gist.githubusercontent.com/anonymous/efb8d2ab014796b45817954ed4e188ba/raw/4e15466382a261a6e7da9cecfc34c5dc05f28525/style.json'
+);
 
 var searchResult = new VectorLayer({
   zIndex: 1
