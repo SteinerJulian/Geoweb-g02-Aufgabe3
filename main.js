@@ -94,5 +94,5 @@ new AutoComplete({
       });
     });
     searchResult.setSource(source);
-
+  }
  });
