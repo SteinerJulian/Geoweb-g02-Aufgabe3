@@ -89,5 +89,5 @@ map.addLayer(searchResult);
       });
     });
     searchResult.setSource(source);
-  }
+  //}
 });
