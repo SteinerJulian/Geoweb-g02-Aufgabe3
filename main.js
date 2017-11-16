@@ -9,6 +9,8 @@ import Text from 'ol/style/text';
 import Stroke from 'ol/style/stroke';
 import proj from 'ol/proj';
 import Map from 'ol/map';
+import AutoComplete from 'javascript-autocomplete';
+import 'javascript-autocomplete/auto-complete.css';
 import 'ol/ol.css';
 
 const map = new Map({
@@ -43,4 +45,33 @@ layer.setStyle(function(feature) {
       })
     })
   });
+});
+
+var searchResult = new VectorLayer({
+  zIndex: 1
+});
+map.addLayer(searchResult);
+
+new AutoComplete({
+  selector: 'input[name="q"]',
+  source: function (term, response) {
+    var source = new VectorSource({
+      format: new GeoJSON(),
+      url: 'https://photon.komoot.de/api/?q=' + term
+    });
+    source.on('change', function() {
+      var texts = source.getFeatures().map(function (feature) {
+        var properties = feature.getProperties();
+        return (properties.city || properties.name || '') + ', ' +
+          (properties.street || '') + ' ' +
+          (properties.housenumber || '');
+      });
+      response(texts);
+      map.getView().fit(source.getExtent(), {
+        maxZoom: 19,
+        duration: 250
+      });
+    });
+    searchResult.setSource(source);
+  }
 });
