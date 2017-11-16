@@ -9,7 +9,8 @@ import Text from 'ol/style/text';
 import Stroke from 'ol/style/stroke';
 import proj from 'ol/proj';
 import Map from 'ol/map';
-
+//import 'javascript-autocomplete/auto-complete.css';
+//import AutoComplete from 'javascript-autocomplete';
 
 
 import {
@@ -67,12 +68,12 @@ var searchResult = new VectorLayer({
 });
 map.addLayer(searchResult);
 
-new AutoComplete({
-  selector: 'input[name="q"]',
-  source: function(term, response) {
-    var source = new VectorSource({
-      format: new GeoJSON(),
-      url: 'https://photon.komoot.de/api/?q=' + term
+//new AutoComplete({
+//  selector: 'input[name="q"]',
+//  source: function(term, response) {
+//    var source = new VectorSource({
+//      format: new GeoJSON(),
+//      url: 'https://photon.komoot.de/api/?q=' + term
     });
     source.on('change', function() {
       var texts = source.getFeatures().map(function(feature) {
