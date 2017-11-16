@@ -75,19 +75,19 @@ map.addLayer(searchResult);
 //      format: new GeoJSON(),
 //      url: 'https://photon.komoot.de/api/?q=' + term
   //  });
-    source.on('change', function() {
-      var texts = source.getFeatures().map(function(feature) {
-        var properties = feature.getProperties();
-        return (properties.city || properties.name || '') + ', ' +
-          (properties.street || '') + ' ' +
-          (properties.housenumber || '');
-      });
-      response(texts);
-      map.getView().fit(source.getExtent(), {
-        maxZoom: 19,
-        duration: 250
-      });
-    });
-    searchResult.setSource(source);
+    //source.on('change', function() {
+  //    var texts = source.getFeatures().map(function(feature) {
+  //      var properties = feature.getProperties();
+  //      return (properties.city || properties.name || '') + ', ' +
+  //        (properties.street || '') + ' ' +
+  //        (properties.housenumber || '');
+  //    });
+  //    response(texts);
+  //    map.getView().fit(source.getExtent(), {
+  //      maxZoom: 19,
+  //      duration: 250
+//      });
+//    });
+//    searchResult.setSource(source);
   //}
-});
+// });
