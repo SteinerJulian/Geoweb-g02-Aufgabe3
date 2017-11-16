@@ -20,8 +20,8 @@ import {
 import 'ol/ol.css';
 
 var map = apply(
-  "map",
-  "https://github.com/SteinerJulian/Geoweb-g02-Aufgabe3/blob/master/data/map.geojson"
+  'map',
+  'https://github.com/SteinerJulian/Geoweb-g02-Aufgabe3/blob/master/data/map.geojson'
 );
 
 //apply('map', 'style.json');
