@@ -80,7 +80,7 @@ new AutoComplete({
       format: new GeoJSON(),
       url: 'https://photon.komoot.de/api/?q=' + term
     });
-    //source.on('change', function() {
+    source.on('change', function() {
       var texts = source.getFeatures().map(function(feature) {
         var properties = feature.getProperties();
         return (properties.city || properties.name || '') + ', ' +
