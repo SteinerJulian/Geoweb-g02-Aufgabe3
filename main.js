@@ -74,7 +74,7 @@ map.addLayer(searchResult);
 //    var source = new VectorSource({
 //      format: new GeoJSON(),
 //      url: 'https://photon.komoot.de/api/?q=' + term
-    });
+  //  });
     source.on('change', function() {
       var texts = source.getFeatures().map(function(feature) {
         var properties = feature.getProperties();
