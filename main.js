@@ -10,9 +10,21 @@ import Stroke from 'ol/style/stroke';
 import proj from 'ol/proj';
 import Map from 'ol/map';
 
-import { apply } from 'ol-mapbox-style';
+import {
+  apply
+} from 'ol-mapbox-style';
 
 import 'ol/ol.css';
+
+apply('map', 'style.json');
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://photon.komoot.de/api/?q=Wien+Karlsplatz+13');
+xhr.onload = function() {
+  var json = JSON.parse(xhr.responseText);
+  console.log(json);
+};
+xhr.send();
 
 const map = new Map({
   target: 'map',
@@ -28,10 +40,10 @@ map.addLayer(new TileLayer({
 }));
 
 const layer = new VectorLayer({
-source: new Vector({
-  url: 'data/map.geojson',
-  format: new GeoJSON()
-})
+  source: new Vector({
+    url: 'data/map.geojson',
+    format: new GeoJSON()
+  })
 });
 map.addLayer(layer);
 
@@ -55,13 +67,13 @@ map.addLayer(searchResult);
 
 new AutoComplete({
   selector: 'input[name="q"]',
-  source: function (term, response) {
+  source: function(term, response) {
     var source = new VectorSource({
       format: new GeoJSON(),
       url: 'https://photon.komoot.de/api/?q=' + term
     });
     source.on('change', function() {
-      var texts = source.getFeatures().map(function (feature) {
+      var texts = source.getFeatures().map(function(feature) {
         var properties = feature.getProperties();
         return (properties.city || properties.name || '') + ', ' +
           (properties.street || '') + ' ' +
