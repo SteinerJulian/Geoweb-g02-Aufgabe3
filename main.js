@@ -10,7 +10,7 @@ import Stroke from 'ol/style/stroke';
 import proj from 'ol/proj';
 import Map from 'ol/map';
 import AutoComplete from 'javascript-autocomplete';
-import 'javascript-autocomplete/auto-complete.css';
+
 import 'ol/ol.css';
 
 const map = new Map({
