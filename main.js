@@ -4,9 +4,7 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
-//! [import-proj]
 import proj from 'ol/proj';
-//! [import-proj]
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import Feature from 'ol/feature';
@@ -14,16 +12,13 @@ import Point from 'ol/geom/point';
 import Style from 'ol/style/style';
 import IconStyle from 'ol/style/icon';
 import Overlay from 'ol/overlay';
-//! Suchzeile
 import GeoJSON from 'ol/format/geojson';
 import {
   apply
 } from 'ol-mapbox-style';
 import AutoComplete from 'javascript-autocomplete';
 
-//! [map-const]
 const map = new Map({
-  //! [map-const]
   target: 'map',
   layers: [
     new TileLayer({
@@ -31,19 +26,8 @@ const map = new Map({
         url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg'
       })
     })
-  ],
-  view: new View({
-    center: [0, 0],
-    zoom: 19
-  })
-});
-
-function fit() {
-  map.getView().fit(source.getExtent(), {
-    maxZoom: 19,
-    duration: 250
-  });
-}
+  ]
+})
 
 const position = new VectorSource();
 const vector = new VectorLayer({
@@ -86,7 +70,7 @@ vector.setStyle(new Style({
 }));
 map.addLayer(vector);
 
-//! [geolocation]
+//! geolocation beim erstladen
 navigator.geolocation.getCurrentPosition(function(pos) {
   const coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({
