@@ -5,6 +5,8 @@
   "private": true,
   "main": "main.js",
   "dependencies": {
+    "autocomplete": "0.0.1",
+    "babel": "^6.23.0",
     "colormap": "^2.2.0",
     "ol": "^4.3.1",
     "ol-hashed": "^1.0.2",
@@ -30,7 +32,7 @@
     "webpack-dev-server": "^2.6.1",
     "webpack-merge": "^4.1.0",
     "webpack-sources": "1.0.1"
-    },
+  },
   "eslintConfig": {
     "extends": "openlayers",
     "parserOptions": {
@@ -47,6 +49,6 @@
     "start": "webpack-dashboard -- webpack-dev-server",
     "lint": "eslint .",
     "test": "npm run lint",
-    "build": "webpack --env=prod"
+    "build": "webpack -- env=prod"
   }
 }
