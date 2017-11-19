@@ -18,6 +18,7 @@ import {
 } from 'ol-mapbox-style';
 import AutoComplete from 'javascript-autocomplete';
 
+
 const map = new Map({
   target: 'map',
   layers: [
