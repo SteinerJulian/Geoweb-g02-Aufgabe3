@@ -16,6 +16,7 @@ import GeoJSON from 'ol/format/geojson';
 import {apply} from 'ol-mapbox-style';
 import AutoComplete from 'javascript-autocomplete';
 
+
 const map = new Map({
   target: 'map',
   layers: [
@@ -26,48 +27,7 @@ const map = new Map({
     })
   ]
 });
-/*
-const position = new VectorSource();
-const vector = new VectorLayer({
-  source: position
-});
 
-var searchResult = new VectorLayer({
-  zIndex: 1
-});
-map.addLayer(searchResult);
-
-new AutoComplete({
-  selector: 'input[name="q"]',
-  source: function(term, response) {
-    var source = new VectorSource({
-      format: new GeoJSON(),
-      url: 'https://photon.komoot.de/api/?q=' + term
-    });
-    source.on('change', function() {
-      var texts = source.getFeatures().map(function(feature) {
-        var properties = feature.getProperties();
-        return (properties.city || properties.name || '') + ', ' +
-          (properties.street || '') + ' ' +
-          (properties.housenumber || '');
-      });
-      response(texts);
-      map.getView().fit(source.getExtent(), {
-        maxZoom: 19,
-        duration: 250
-      });
-    });
-    searchResult.setSource(source);
-  }
-});
-
-vector.setStyle(new Style({
-  image: new IconStyle({
-    src: './data/marker.png'
-  })
-}));
-map.addLayer(vector);
-*/
 
 function fit() {
   map.getView().fit(source.getExtent(), {
@@ -75,6 +35,8 @@ function fit() {
     duration: 250
   });
 }
+
+
 
 var selected;
 function getAddress(feature) {
@@ -127,7 +89,6 @@ const vector = new VectorLayer({
   source: position
 });
 
-//! geolocation beim erstladen
 navigator.geolocation.getCurrentPosition(function(pos) {
   const coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({
@@ -136,8 +97,6 @@ navigator.geolocation.getCurrentPosition(function(pos) {
   });
   position.addFeature(new Feature(new Point(coords)));
 });
-
-//! Pop-up bei Klick
 
 var overlay = new Overlay({
   element: document.getElementById('popup-container'),
@@ -155,3 +114,11 @@ map.on('click', function(e) {
     overlay.setPosition(e.coordinate);
   }
 });
+
+searchResult.setStyle(new Style({
+  image: new IconStyle({
+    scale: 0.03,
+    src: './data/icon.png',
+    opacity: 1
+  })
+}));
