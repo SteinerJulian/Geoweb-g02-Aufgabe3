@@ -1,0 +1,31 @@
+{
+  "version": 8,
+  "name": "GeoWeb Gruppe 2",
+  "metadata": {},
+  "center": [
+    16.288,
+    48.2196
+  ],
+  "zoom": 10,
+  "sources": {
+    "basemap": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png"
+      ],
+      "minzoom": 0,
+      "maxzoom": 20,
+      "tileSize": 256
+    }
+  },
+  "glyphs": "https://demo.tileserver.org/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "basemap",
+      "type": "raster",
+      "source": "basemap"
+    },
+  ],
+  "sprites": "https://demo.tileserver.org/fonts/{fontstack}/{range}.pbf",
+  "id": "kfp20g6n2"
+}
