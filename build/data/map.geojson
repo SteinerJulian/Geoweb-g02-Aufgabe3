@@ -1,0 +1,57 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gruppenmitglied 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3522,
+          48.1853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gruppenmitglied 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.354522705078125,
+          48.191725575618726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gruppenmitglied 3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3807,
+          48.1936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gruppenmitglied 4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.30542755126953,
+          48.18188310348008
+        ]
+      }
+    }
+  ]
+}
